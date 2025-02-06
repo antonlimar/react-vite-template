@@ -1,9 +1,9 @@
 import { useState } from 'react';
 import { SuperDiv } from '@/components/SuperDiv';
-import reactLogo from './assets/react.svg';
+import reactLogo from '@/assets/react.svg';
 // eslint-disable-next-line import/no-unresolved
 import viteLogo from '/vite.svg';
-import './App.css';
+import './App.scss';
 
 const App = () => {
   const [count, setCount] = useState(0);
