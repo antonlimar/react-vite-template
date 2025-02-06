@@ -1,0 +1,5 @@
+@use '@/styles/variables';
+
+.#{variables.$prefix}-super-div {
+  color: variables.$main-color;
+}

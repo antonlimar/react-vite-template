@@ -4,6 +4,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tsEslint from 'typescript-eslint';
+import importPlugin from 'eslint-plugin-import';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default tsEslint.config(
@@ -13,6 +14,8 @@ export default tsEslint.config(
       js.configs.recommended,
       ...tsEslint.configs.recommendedTypeChecked,
       ...tsEslint.configs.stylisticTypeChecked,
+      importPlugin.flatConfigs.recommended,
+      importPlugin.flatConfigs.typescript,
       eslintConfigPrettier,
     ],
     files: ['**/*.{ts,tsx}'],
@@ -38,6 +41,16 @@ export default tsEslint.config(
     settings: {
       react: {
         version: '18.3',
+      },
+      'import/resolver': {
+        'eslint-import-resolver-custom-alias': {
+          alias: {
+            '@': './src',
+          },
+          extensions: ['.ts', '.tsx'],
+        },
+        typescript: true,
+        node: true,
       },
     },
   },
