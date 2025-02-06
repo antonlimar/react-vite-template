@@ -1,7 +1,15 @@
 {
   "name": "react-vite-template",
   "private": true,
-  "version": "0.0.2",
+  "version": "1.0.0",
+  "description": "React Vite Template",
+  "keywords": ["React", "Vite", "Typescript", "SCSS", "ESLint", "Stylelint", "Prettier", "BEM"],
+  "author": {
+    "name": "Anton Limar",
+    "email": "antonreal93@gmail.com"
+  },
+  "repository": "github:antonlimar/react-vite-template",
+  "bugs": "https://github.com/antonlimar/react-vite-template/issues",
   "type": "module",
   "scripts": {
     "dev": "vite",

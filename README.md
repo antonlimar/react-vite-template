@@ -1,50 +1,72 @@
-# React + TypeScript + Vite
+# React Vite Template
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Vite](https://img.shields.io/badge/Vite-6-purple) ![SASS](https://img.shields.io/badge/SASS-CSS-pink) ![ESLint](https://img.shields.io/badge/ESLint-lint-yellow) ![ESLint](https://img.shields.io/badge/Stylelint-lint-green) ![Prettier](https://img.shields.io/badge/Prettier-format-orange)
 
-Currently, two official plugins are available:
+Этот шаблон предназначен для быстрого создания приложений на базе React с использованием Vite, TypeScript, SCSS и методологии БЭМ. Включает в себя ESLint, Stylelint и Prettier для обеспечения высокого качества кода.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Функциональность
 
-## Expanding the ESLint configuration
+- **React 19** – современная библиотека для создания пользовательских интерфейсов.
+- **TypeScript** – строгая типизация для повышения надежности кода.
+- **Vite** – быстрая сборка и поддержка HMR.
+- **SСSS** – мощный препроцессор для стилей.
+- **Методология БЭМ** – структурированный подход к написанию CSS.
+- **ESLint + Stylelint + Prettier** – автоматическое форматирование и проверка кода.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## 📦 Установка
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```sh
+git clone git@github.com:antonlimar/react-vite-template.git
+cd react-vite-template
+npm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🔧 Запуск в режиме разработки
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react';
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-});
+```sh
+npm run dev
 ```
+
+Приложение будет доступно по адресу [http://localhost:5173](http://localhost:5173).
+
+## 🛠 Сборка проекта
+
+```sh
+npm run build
+```
+
+## 📏 Линтинг и форматирование кода
+
+```sh
+npm run lint        # Проверка кода
+npm run stylelint   # Проверка стилей
+npm run format      # Форматирование кода
+```
+
+## 📁 Структура проекта
+
+```
+react-vite-template/
+│── .github/           # Файлы связанные с GitHub Actions
+│── .husky/            # Файлы для управления Git-хуками
+│── public/            # Статические файлы
+│── src/
+│   ├── assets/        # Изображения, шрифты
+│   ├── components/    # UI-компоненты
+│   ├── shared/        # Общие утилиты для всего приложения
+│   ├── styles/        # Глобальные стили (SСSS, БЭМ)
+│   ├── App.tsx        # Основной компонент
+│   ├── main.tsx       # Точка входа
+│── .editorconfig      # Конфигурация форматирования для текстовых редакторов и IDE
+│── .prettierrc        # Конфигурация Prettier
+│── .stylelintrc.json  # Конфигурация Stylelint
+│── eslint.config.js   # Конфигурация ESLint
+│── package.json       # Зависимости и скрипты
+│── tsconfig.json      # Конфигурация TypeScript
+│── vite.config.ts     # Конфигурация Vite
+```
+
+## 📜 Лицензия
+
+Этот шаблон распространяется под лицензией MIT. Свободно создавайте проекты на его основе!
+
