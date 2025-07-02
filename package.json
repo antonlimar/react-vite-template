@@ -3,7 +3,16 @@
   "private": true,
   "version": "1.0.0",
   "description": "React Vite Template",
-  "keywords": ["React", "Vite", "Typescript", "SCSS", "ESLint", "Stylelint", "Prettier", "BEM"],
+  "keywords": [
+    "React",
+    "Vite",
+    "Typescript",
+    "SCSS",
+    "ESLint",
+    "Stylelint",
+    "Prettier",
+    "BEM"
+  ],
   "author": {
     "name": "Anton Limar",
     "email": "antonreal93@gmail.com"
@@ -21,35 +30,35 @@
     "format": "prettier . --write"
   },
   "dependencies": {
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.19.0",
-    "@types/node": "^22.13.1",
-    "@types/react": "^19.0.8",
-    "@types/react-dom": "^19.0.3",
-    "@vitejs/plugin-react": "^4.3.4",
+    "@eslint/js": "^9.30.1",
+    "@types/node": "^22.16.0",
+    "@types/react": "^19.1.8",
+    "@types/react-dom": "^19.1.6",
+    "@vitejs/plugin-react": "^4.6.0",
     "bem-cn": "^3.0.1",
-    "eslint": "^9.19.0",
-    "eslint-config-prettier": "^10.0.1",
+    "eslint": "^9.30.1",
+    "eslint-config-prettier": "^10.1.5",
     "eslint-import-resolver-custom-alias": "^1.3.2",
-    "eslint-import-resolver-typescript": "^3.7.0",
-    "eslint-plugin-import": "^2.31.0",
-    "eslint-plugin-react": "^7.37.4",
-    "eslint-plugin-react-hooks": "^5.1.0",
-    "eslint-plugin-react-refresh": "^0.4.18",
-    "globals": "^15.14.0",
+    "eslint-import-resolver-typescript": "^4.4.4",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "eslint-plugin-react-refresh": "^0.4.20",
+    "globals": "^16.3.0",
     "husky": "^9.1.7",
-    "lint-staged": "^15.4.3",
-    "prettier": "3.4.2",
-    "sass": "^1.83.4",
-    "stylelint": "^16.14.1",
-    "stylelint-config-standard": "^37.0.0",
-    "stylelint-config-standard-scss": "^14.0.0",
-    "typescript": "^5.7.3",
-    "typescript-eslint": "^8.23.0",
-    "vite": "^6.1.0"
+    "lint-staged": "^16.1.2",
+    "prettier": "3.6.2",
+    "sass": "^1.89.2",
+    "stylelint": "^16.21.0",
+    "stylelint-config-standard": "^38.0.0",
+    "stylelint-config-standard-scss": "^15.0.1",
+    "typescript": "^5.8.3",
+    "typescript-eslint": "^8.35.1",
+    "vite": "^7.0.0"
   },
   "lint-staged": {
     "**/*.{ts,tsx}": [
