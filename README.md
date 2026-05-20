@@ -2,18 +2,18 @@
 
 ![React](https://img.shields.io/badge/React-19-blue) ![TypeScript](https://img.shields.io/badge/TypeScript-5-blue) ![Vite](https://img.shields.io/badge/Vite-6-purple) ![SASS](https://img.shields.io/badge/SASS-CSS-pink) ![ESLint](https://img.shields.io/badge/ESLint-lint-yellow) ![ESLint](https://img.shields.io/badge/Stylelint-lint-green) ![Prettier](https://img.shields.io/badge/Prettier-format-orange)
 
-Этот шаблон предназначен для быстрого создания приложений на базе React с использованием Vite, TypeScript, SCSS и методологии БЭМ. Включает в себя ESLint, Stylelint и Prettier для обеспечения высокого качества кода.
+This template is designed for quickly creating React applications with Vite, TypeScript, SCSS, and the BEM methodology. It includes ESLint, Stylelint, and Prettier to help maintain high code quality.
 
-## 🚀 Функциональность
+## 🚀 Features
 
-- **React 19** – современная библиотека для создания пользовательских интерфейсов.
-- **TypeScript** – строгая типизация для повышения надежности кода.
-- **Vite** – быстрая сборка и поддержка HMR.
-- **SСSS** – мощный препроцессор для стилей.
-- **Методология БЭМ** – структурированный подход к написанию CSS.
-- **ESLint + Stylelint + Prettier** – автоматическое форматирование и проверка кода.
+- **React 19** – a modern library for building user interfaces.
+- **TypeScript** – strict typing for more reliable code.
+- **Vite** – fast builds and HMR support.
+- **SCSS** – a powerful style preprocessor.
+- **BEM methodology** – a structured approach to writing CSS.
+- **ESLint + Stylelint + Prettier** – automatic code formatting and checks.
 
-## 📦 Установка
+## 📦 Installation
 
 ```sh
 git clone git@github.com:antonlimar/react-vite-template.git
@@ -21,51 +21,51 @@ cd react-vite-template
 npm install
 ```
 
-## 🔧 Запуск в режиме разработки
+## 🔧 Development
 
 ```sh
 npm run dev
 ```
 
-Приложение будет доступно по адресу [http://localhost:5173](http://localhost:5173).
+The application will be available at [http://localhost:5173](http://localhost:5173).
 
-## 🛠 Сборка проекта
+## 🛠 Project Build
 
 ```sh
 npm run build
 ```
 
-## 📏 Линтинг и форматирование кода
+## 📏 Linting and Code Formatting
 
 ```sh
-npm run lint        # Проверка кода
-npm run stylelint   # Проверка стилей
-npm run format      # Форматирование кода
+npm run lint        # Check code
+npm run stylelint   # Check styles
+npm run format      # Format code
 ```
 
-## 📁 Структура проекта
+## 📁 Project Structure
 
 ```
 react-vite-template/
-│── .github/           # Файлы связанные с GitHub Actions
-│── .husky/            # Файлы для управления Git-хуками
-│── public/            # Статические файлы
+│── .github/           # Files related to GitHub Actions
+│── .husky/            # Files for managing Git hooks
+│── public/            # Static files
 │── src/
-│   ├── assets/        # Изображения, шрифты
-│   ├── components/    # UI-компоненты
-│   ├── shared/        # Общие утилиты для всего приложения
-│   ├── styles/        # Глобальные стили (SСSS, БЭМ)
-│   ├── App.tsx        # Основной компонент
-│   ├── main.tsx       # Точка входа
-│── .editorconfig      # Конфигурация форматирования для текстовых редакторов и IDE
-│── .prettierrc        # Конфигурация Prettier
-│── .stylelintrc.json  # Конфигурация Stylelint
-│── eslint.config.js   # Конфигурация ESLint
-│── package.json       # Зависимости и скрипты
-│── tsconfig.json      # Конфигурация TypeScript
-│── vite.config.ts     # Конфигурация Vite
+│   ├── assets/        # Images and fonts
+│   ├── components/    # UI components
+│   ├── shared/        # Shared utilities for the entire application
+│   ├── styles/        # Global styles (SCSS, BEM)
+│   ├── App.tsx        # Main component
+│   ├── main.tsx       # Entry point
+│── .editorconfig      # Formatting configuration for text editors and IDEs
+│── .prettierrc        # Prettier configuration
+│── .stylelintrc.json  # Stylelint configuration
+│── eslint.config.js   # ESLint configuration
+│── package.json       # Dependencies and scripts
+│── tsconfig.json      # TypeScript configuration
+│── vite.config.ts     # Vite configuration
 ```
 
-## 📜 Лицензия
+## 📜 License
 
-Этот шаблон распространяется под лицензией MIT. Свободно создавайте проекты на его основе!
+This template is distributed under the MIT license. Feel free to build projects based on it!
