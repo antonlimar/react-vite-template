@@ -3,6 +3,6 @@ import './SuperDiv.scss';
 
 const classBEM = bem('super-div');
 
-export const SuperDiv = () => {
+export function SuperDiv() {
   return <div className={classBEM()}>SuperDiv!!!</div>;
-};
+}
