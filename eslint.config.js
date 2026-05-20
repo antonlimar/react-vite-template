@@ -8,7 +8,7 @@ import globals from 'globals';
 import tsEslint from 'typescript-eslint';
 
 export default tsEslint.config(
-  { ignores: ['dist'] },
+  { ignores: ['dist', 'dist-ssr'] },
   {
     extends: [
       js.configs.recommended,
