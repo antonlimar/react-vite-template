@@ -1,5 +1,5 @@
-import './SuperDiv.scss';
 import { bem } from '@/shared';
+import './SuperDiv.scss';
 
 const classBEM = bem('super-div');
 

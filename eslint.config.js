@@ -4,7 +4,7 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefresh from 'eslint-plugin-react-refresh';
 import tsEslint from 'typescript-eslint';
-import importPlugin from 'eslint-plugin-import';
+import { createNodeResolver, importX } from 'eslint-plugin-import-x';
 import eslintConfigPrettier from 'eslint-config-prettier';
 
 export default tsEslint.config(
@@ -14,8 +14,8 @@ export default tsEslint.config(
       js.configs.recommended,
       ...tsEslint.configs.recommendedTypeChecked,
       ...tsEslint.configs.stylisticTypeChecked,
-      importPlugin.flatConfigs.recommended,
-      importPlugin.flatConfigs.typescript,
+      importX.flatConfigs.recommended,
+      importX.flatConfigs.typescript,
       eslintConfigPrettier,
     ],
     files: ['**/*.{ts,tsx}'],
@@ -36,22 +36,33 @@ export default tsEslint.config(
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      'import-x/no-unresolved': ['error', { ignore: ['^@/', '^/'] }],
+      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+      'import-x/order': [
+        'error',
+        {
+          groups: ['builtin', 'external', 'internal', 'parent', 'index', 'sibling', 'object', 'unknown'],
+          pathGroups: [
+            { pattern: 'react', group: 'external', position: 'after' },
+            { pattern: '@/**', group: 'internal', position: 'after' },
+            { pattern: './*.scss', group: 'unknown', position: 'after' },
+            { pattern: '../*.scss', group: 'unknown', position: 'after' },
+          ],
+          'newlines-between': 'never',
+          alphabetize: { order: 'asc', caseInsensitive: true },
+          warnOnUnassignedImports: true,
+        },
+      ],
+      'import-x/no-cycle': 'error',
+      'import-x/no-duplicates': 'error',
       'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
     },
     settings: {
       react: {
-        version: '18.3',
+        version: 'detect',
       },
-      'import/resolver': {
-        'eslint-import-resolver-custom-alias': {
-          alias: {
-            '@': './src',
-          },
-          extensions: ['.ts', '.tsx'],
-        },
-        typescript: true,
-        node: true,
-      },
+      'import-x/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
+      'import-x/resolver-next': [createNodeResolver({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'] })],
     },
   },
 );

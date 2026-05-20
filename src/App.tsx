@@ -1,7 +1,6 @@
 import { useState } from 'react';
-import { SuperDiv } from '@/components/SuperDiv';
 import reactLogo from '@/assets/react.svg';
-// eslint-disable-next-line import/no-unresolved
+import { SuperDiv } from '@/components/SuperDiv';
 import viteLogo from '/vite.svg';
 import './App.scss';
 
