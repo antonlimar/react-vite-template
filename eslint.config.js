@@ -1,26 +1,27 @@
 import js from '@eslint/js';
 import eslintConfigPrettier from 'eslint-config-prettier';
+import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import { createNodeResolver, importX } from 'eslint-plugin-import-x';
 import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import tsEslint from 'typescript-eslint';
+import tsEslint, { configs as tsEslintConfigs } from 'typescript-eslint';
 
 export default tsEslint.config(
   { ignores: ['dist', 'dist-ssr'] },
   {
     extends: [
       js.configs.recommended,
-      ...tsEslint.configs.recommendedTypeChecked,
-      ...tsEslint.configs.stylisticTypeChecked,
+      ...tsEslintConfigs.recommendedTypeChecked,
+      ...tsEslintConfigs.stylisticTypeChecked,
       importX.flatConfigs.recommended,
       importX.flatConfigs.typescript,
       eslintConfigPrettier,
     ],
     files: ['**/*.{js,jsx,ts,tsx,mjs}'],
     languageOptions: {
-      ecmaVersion: 2020,
+      ecmaVersion: 'latest',
       globals: globals.browser,
       parserOptions: {
         project: ['./tsconfig.eslint.json'],
@@ -36,8 +37,9 @@ export default tsEslint.config(
       ...react.configs.recommended.rules,
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
+      'react/prop-types': 'off',
       'no-nested-ternary': 'error',
-      'import-x/no-unresolved': ['error', { ignore: ['^@/', '^/'] }],
+      'import-x/no-unresolved': ['error', { ignore: ['^/'] }],
       'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
       'import-x/order': [
         'error',
@@ -72,7 +74,10 @@ export default tsEslint.config(
         version: 'detect',
       },
       'import-x/extensions': ['.js', '.jsx', '.ts', '.tsx', '.mjs'],
-      'import-x/resolver-next': [createNodeResolver({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'] })],
+      'import-x/resolver-next': [
+        createTypeScriptImportResolver({ project: './tsconfig.eslint.json' }),
+        createNodeResolver({ extensions: ['.js', '.jsx', '.ts', '.tsx', '.mjs'] }),
+      ],
     },
   },
 );
