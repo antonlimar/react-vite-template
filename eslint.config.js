@@ -1,4 +1,5 @@
 import js from '@eslint/js';
+import { defineConfig } from 'eslint/config';
 import eslintConfigPrettier from 'eslint-config-prettier';
 import { createTypeScriptImportResolver } from 'eslint-import-resolver-typescript';
 import { createNodeResolver, importX } from 'eslint-plugin-import-x';
@@ -6,9 +7,9 @@ import react from 'eslint-plugin-react';
 import reactHooks from 'eslint-plugin-react-hooks';
 import reactRefreshPlugin from 'eslint-plugin-react-refresh';
 import globals from 'globals';
-import tsEslint, { configs as tsEslintConfigs } from 'typescript-eslint';
+import { configs as tsEslintConfigs } from 'typescript-eslint';
 
-export default tsEslint.config(
+export default defineConfig(
   { ignores: ['dist', 'dist-ssr'] },
   {
     extends: [
