@@ -67,7 +67,7 @@ export default tsEslint.config(
           fixStyle: 'separate-type-imports',
         },
       ],
-      'react-refresh/only-export-components': ['warn', { allowConstantExport: true }],
+      'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
     },
     settings: {
       react: {
