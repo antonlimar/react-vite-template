@@ -68,12 +68,12 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,mjs}": [
-      "prettier --write --log-level silent",
-      "eslint"
+      "eslint --fix",
+      "prettier --write --log-level silent"
     ],
     "**/*.scss": [
-      "prettier --write --log-level silent",
-      "stylelint"
+      "stylelint",
+      "prettier --write --log-level silent"
     ]
   },
   "allowScripts": {
