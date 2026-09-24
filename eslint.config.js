@@ -40,8 +40,7 @@ export default defineConfig(
       ...reactHooks.configs.recommended.rules,
       'react/prop-types': 'off',
       'no-nested-ternary': 'error',
-      'import-x/no-unresolved': ['error', { ignore: ['^/'] }],
-      'import-x/consistent-type-specifier-style': ['error', 'prefer-top-level'],
+      'import-x/consistent-type-specifier-style': 'error',
       'import-x/order': [
         'error',
         {
