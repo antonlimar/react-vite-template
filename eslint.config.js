@@ -18,6 +18,7 @@ export default defineConfig(
       ...tsEslintConfigs.stylisticTypeChecked,
       importX.flatConfigs.recommended,
       importX.flatConfigs.typescript,
+      reactRefreshPlugin.configs.vite,
       eslintConfigPrettier,
     ],
     files: ['**/*.{js,jsx,ts,tsx,mjs}'],
@@ -32,7 +33,6 @@ export default defineConfig(
     plugins: {
       react,
       'react-hooks': reactHooks,
-      'react-refresh': reactRefreshPlugin,
     },
     rules: {
       ...react.configs.recommended.rules,
@@ -59,8 +59,6 @@ export default defineConfig(
       ],
       'import-x/no-cycle': 'error',
       'import-x/no-duplicates': 'error',
-      '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
-      '@typescript-eslint/no-unused-vars': ['error', { args: 'none', ignoreRestSiblings: true }],
       '@typescript-eslint/consistent-type-imports': [
         'error',
         {
@@ -68,7 +66,6 @@ export default defineConfig(
           fixStyle: 'separate-type-imports',
         },
       ],
-      'react-refresh/only-export-components': ['error', { allowConstantExport: true }],
     },
     settings: {
       react: {
