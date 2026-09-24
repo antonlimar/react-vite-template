@@ -28,7 +28,8 @@
     "stylelint": "stylelint 'src/**/*.scss'",
     "preview": "vite preview",
     "prepare": "husky",
-    "format": "prettier . --write --log-level silent"
+    "format": "prettier . --write --log-level silent",
+    "format:check": "prettier . --check --log-level warn"
   },
   "dependencies": {
     "react": "^19.3.0",
