@@ -24,10 +24,11 @@
     "dev": "vite",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "stylelint": "stylelint 'src/**/*.scss'",
     "preview": "vite preview",
     "prepare": "husky",
-    "format": "prettier . --write"
+    "format": "prettier . --write --log-level silent"
   },
   "dependencies": {
     "react": "^19.3.0",
@@ -66,11 +67,11 @@
   },
   "lint-staged": {
     "**/*.{js,jsx,ts,tsx,mjs}": [
-      "prettier --write",
+      "prettier --write --log-level silent",
       "eslint"
     ],
     "**/*.scss": [
-      "prettier --write",
+      "prettier --write --log-level silent",
       "stylelint"
     ]
   },
