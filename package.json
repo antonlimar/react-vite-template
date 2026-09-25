@@ -18,6 +18,7 @@
     "email": "antonreal93@gmail.com"
   },
   "repository": "github:antonlimar/react-vite-template",
+  "license": "MIT",
   "bugs": "https://github.com/antonlimar/react-vite-template/issues",
   "type": "module",
   "scripts": {
@@ -30,6 +31,16 @@
     "prepare": "husky",
     "format": "prettier . --write --log-level silent",
     "format:check": "prettier . --check --log-level warn"
+  },
+  "lint-staged": {
+    "**/*.{js,jsx,ts,tsx,mjs}": [
+      "eslint --fix --max-warnings=0 --no-warn-ignored",
+      "prettier --write --log-level silent"
+    ],
+    "**/*.scss": [
+      "stylelint",
+      "prettier --write --log-level silent"
+    ]
   },
   "dependencies": {
     "react": "^19.3.0",
@@ -65,16 +76,6 @@
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.1",
     "vite": "^8.3.0"
-  },
-  "lint-staged": {
-    "**/*.{js,jsx,ts,tsx,mjs}": [
-      "eslint --fix",
-      "prettier --write --log-level silent"
-    ],
-    "**/*.scss": [
-      "stylelint",
-      "prettier --write --log-level silent"
-    ]
   },
   "allowScripts": {
     "@parcel/watcher@2.5.6": true,
