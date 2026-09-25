@@ -48,6 +48,8 @@ not run more than three Context7 commands for one question.
 | `src/styles/`               | Shared SCSS variables and global style data. |
 | `src/assets/`               | Source assets imported by the app.           |
 | `public/`                   | Static assets served directly by Vite.       |
+| `.github/workflows/ci.yml`  | CI verification workflow.                    |
+| `.husky/pre-commit`         | Pre-commit hook that runs `lint-staged`.     |
 | `vite.config.ts`            | Vite config and `@` alias definition.        |
 | `eslint.config.js`          | Flat ESLint configuration.                   |
 | `tsconfig*.json`            | TypeScript project configuration.            |
@@ -56,18 +58,24 @@ Do not edit generated output such as `dist/` manually.
 
 ## Main Commands
 
-| Command             | Purpose                                        |
-| ------------------- | ---------------------------------------------- |
-| `npm install`       | Install dependencies from `package-lock.json`. |
-| `npm run dev`       | Start Vite dev server.                         |
-| `npm run build`     | Run TypeScript build check and Vite build.     |
-| `npm run lint`      | Run ESLint on the repository.                  |
-| `npm run stylelint` | Run Stylelint on `src/**/*.scss`.              |
-| `npm run format`    | Format files with Prettier.                    |
-| `npm run preview`   | Preview the production build locally.          |
+| Command                | Purpose                                        |
+| ---------------------- | ---------------------------------------------- |
+| `npm install`          | Install dependencies from `package-lock.json`. |
+| `npm ci`               | Reproducibly install locked dependencies.      |
+| `npm run dev`          | Start Vite dev server.                         |
+| `npm run build`        | Run TypeScript build check and Vite build.     |
+| `npm run lint`         | Run ESLint on the repository.                  |
+| `npm run lint:fix`     | Apply ESLint autofixes.                        |
+| `npm run stylelint`    | Run Stylelint on `src/**/*.scss`.              |
+| `npm run format`       | Format files with Prettier.                    |
+| `npm run format:check` | Check formatting without changing files.       |
+| `npm run preview`      | Preview the production build locally.          |
 
-There is currently no dedicated test script. For functional changes, run at
-least `npm run build`, `npm run lint`, and `npm run stylelint` when practical.
+There is no dedicated test script. CI uses Node 24 and runs `npm ci`,
+`npm run lint`, `npm run stylelint`, and `npm run build`. For functional
+changes, run those same checks when practical. The pre-commit hook runs
+`lint-staged`: ESLint and Prettier on JS/TS files, Stylelint and Prettier on
+SCSS files.
 
 ## Code Style
 
@@ -78,6 +86,14 @@ least `npm run build`, `npm run lint`, and `npm run stylelint` when practical.
   casts or disabled rules unless the reason is documented in code.
 - Keep changes focused on the requested behavior. Avoid unrelated cleanup or
   large refactors in this template repository.
+- The React Compiler is enabled through the Vite Babel configuration. Avoid
+  adding manual `memo`, `useMemo`, or `useCallback` unless profiling or a
+  specific semantic requirement justifies it.
+- ESLint is type-aware and uses `tsconfig.eslint.json`. Add new root-level
+  JavaScript or TypeScript config files to that file's `include` list.
+- Keep imports alphabetized with no blank lines between groups. Use separate
+  `import type` statements; place `react` after other external imports, `@/**`
+  imports after externals, and component SCSS imports last.
 
 ## Components And BEM
 
@@ -95,6 +111,11 @@ The configured class naming is:
 - modifier separator: `--`
 - modifier value separator: `-`
 
+Keep the BEM namespace synchronized with the SCSS prefix:
+
+- `src/shared/bem.ts`: `ns: 'app-'`
+- `src/styles/_variables.scss`: `$prefix: 'app'`
+
 For new components, prefer this shape:
 
 ```text
@@ -111,6 +132,8 @@ component-local styling instead of ad hoc global class names.
 
 - Use SCSS for styles.
 - Reuse shared values from `src/styles/_variables.scss` where appropriate.
+- Use `@use '@/styles/variables'` and the shared prefix to build component
+  selectors, for example `.#{variables.$prefix}-component-name`.
 - Keep global styles in `src/index.scss` and app-level styles in `src/App.scss`.
 - Component-specific styles belong next to the component.
 - Run `npm run stylelint` after non-trivial SCSS changes.
